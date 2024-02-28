@@ -1,4 +1,4 @@
 export interface ICity {
-  name: string
-  code: string
+  name: string;
+  code: string;
 }

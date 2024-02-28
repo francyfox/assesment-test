@@ -5,7 +5,7 @@ import type { ICity } from '~/app/module/select-city/select-city.type';
 
 const store = useWhiteRoomStore();
 const { cities, currentCity } = storeToRefs(store);
-const { fetchCities, showError } = store;
+const { fetchCities, showError, getCityNameByCode } = store;
 
 const { data, error } = await fetchCities();
 const cityNames: Ref<string[]> = ref([]);
@@ -15,6 +15,7 @@ if (error.value) {
 } else {
   cities.value = (data.value as { cities: ICity[] }).cities;
   cityNames.value = (data.value as { cities: ICity[] }).cities.map(i => i.name);
+  currentCity.value = getCityNameByCode('750000000');
 }
 
 const changeCity = (name: string) => {

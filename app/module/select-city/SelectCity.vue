@@ -5,7 +5,7 @@ const props = defineProps<{
   data: ICity[]
 }>();
 
-const input = ref(null)
+const input = ref(null);
 </script>
 
 <template>

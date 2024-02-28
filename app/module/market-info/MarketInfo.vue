@@ -5,7 +5,7 @@ import { localeTime } from '../../utils';
 // локализацию как бы тоже необязательно хранить на фронте, можно упоковать в ключ->значение
 defineProps<{
   data: IMarket
-}>()
+}>();
 </script>
 
 <template>

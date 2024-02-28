@@ -13,9 +13,6 @@ if (error.value) {
 } else {
   market.value = data.value
 }
-
-currentCity.value = getCityNameByCode('750000000');
-
 </script>
 
 <template>
