@@ -3,7 +3,9 @@
 </script>
 
 <template>
-  <h1>test</h1>
+  <div class="d-flex flex-column ga-2">
+
+  </div>
 </template>
 
 <style scoped>
