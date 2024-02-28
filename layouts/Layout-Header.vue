@@ -17,8 +17,8 @@ if (error.value) {
   cityNames.value = (data.value as { cities: ICity[] }).cities.map(i => i.name);
 }
 
-const changeCity = (data) => {
-  console.log(data)
+const changeCity = (name: string) => {
+  currentCity.value = name
 }
 </script>
 

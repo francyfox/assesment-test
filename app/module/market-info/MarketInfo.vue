@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import type { IMarket } from '~/app/module/market-info/market-info.type';
+import { localeTime } from '../../utils';
 
+// локализацию как бы тоже необязательно хранить на фронте, можно упоковать в ключ->значение
 defineProps<{
   data: IMarket
 }>()
@@ -9,9 +11,9 @@ defineProps<{
 <template>
   <v-card>
     <v-card-title>
-          <span class="headline">
-            {{ data.name }}
-          </span>
+        <span class="headline">
+          {{ data.name }}
+        </span>
     </v-card-title>
     <v-card-text>
       <ul>
@@ -21,17 +23,7 @@ defineProps<{
           </span>
 
           <span>
-            {{ data.status.today }}
-          </span>
-        </li>
-
-        <li>
-          <span class="u-font-bold">
-            Доступно продуктов:
-          </span>
-
-          <span>
-            {{ data.status.availableProducts }}
+            {{ localeTime(data.status.today) }}
           </span>
         </li>
 
@@ -52,6 +44,16 @@ defineProps<{
 
           <span>
             {{ data.status.nonAvailableProducts }}
+          </span>
+        </li>
+
+        <li>
+          <span class="u-font-bold">
+            Всего продуктов:
+          </span>
+
+          <span>
+            {{ data.status.totalProducts }}
           </span>
         </li>
       </ul>

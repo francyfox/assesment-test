@@ -11,6 +11,10 @@ export const useWhiteRoomStore = defineStore('whiteRoom', () => {
 
   const base = 'https://bitbucket.org/ilakhmotkin/front-end-assesment-ru/raw'
 
+  /**
+   * грубая реализация, я обычно юзаю naive ui там для это провайдер есть, а вызов из globalProperties
+   * @param message
+   */
   async function showError(message: string) {
     error.value = true;
     errorMessage.value = message;
@@ -32,12 +36,17 @@ export const useWhiteRoomStore = defineStore('whiteRoom', () => {
     return response;
   }
 
+  function getCityNameByCode(code: string | null) {
+    return code ? cities.value.find(city => city.code === code)!.name : '';
+  }
+
   return {
     currentCity,
     cities,
     market,
     fetchCities,
     fetchMarket,
+    getCityNameByCode,
     showError,
     error,
     errorMessage
